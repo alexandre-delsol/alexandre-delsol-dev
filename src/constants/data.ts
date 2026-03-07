@@ -44,6 +44,8 @@ export const FORMSPREE_ID = import.meta.env.VITE_FORMSPREE_ID as string;
 export const NAV_ITEMS = ["About", "Projects", "Skills", "Contact"];
 
 export interface Project {
+  img?: string;
+  alt?: string;
   title: string;
   description: string;
   tags: string[];
@@ -52,11 +54,13 @@ export interface Project {
 
 export const PROJECTS: Project[] = [
   {
-    title: "E-Commerce Platform",
+    img:"./snake-game.gif",
+    alt:"Screenshot of Snake Game showing score and grid",
+    title: "Snake Game",
     description:
-      "Fullstack app built with Next.js, Stripe and PostgreSQL. Features order management, real-time cart and admin dashboard.",
-    tags: ["Next.js", "TypeScript", "PostgreSQL", "Stripe"],
-    year: "2024",
+      "A browser-based implementation of the classic Snake game built with Vanilla JavaScript, HTML, and CSS. This project highlights core front-end development skills such as DOM manipulation, keyboard input handling, collision detection, and game state management. The game logic is implemented without external libraries to demonstrate a strong understanding of JavaScript fundamentals and browser APIs.",
+    tags: ["HTML", "JavaScript", "CSS"],
+    year: "2025",
   },
   {
     title: "Real-Time Dashboard",
