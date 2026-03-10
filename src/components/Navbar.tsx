@@ -32,12 +32,12 @@ export function Navbar({ active, onNavigate }: NavbarProps) {
     }}>
       <div className="nav-inner" style={{ padding: "20px 48px", display: "flex", justifyContent: "space-between", alignItems: "center", gap: "16px" }}>
 
-
+        {/* Logo */}
         <div style={{ fontFamily: "'DM Mono', monospace", fontSize: "14px", color: "var(--accent)", letterSpacing: "0.1em", flexShrink: 0 }}>
           dev<span style={{ color: "var(--text-muted)" }}>/</span>portfolio
         </div>
 
-
+        {/* Desktop links */}
         <div className="nav-links" style={{ display: "flex", gap: "32px", alignItems: "center" }}>
           {NAV_ITEMS.map((item) => (
             <span key={item} className="nav-link" onClick={() => handleNavigate(item)}
@@ -47,11 +47,11 @@ export function Navbar({ active, onNavigate }: NavbarProps) {
           ))}
         </div>
 
-
+        {/* Right side: toggle + burger */}
         <div style={{ display: "flex", alignItems: "center", gap: "12px", flexShrink: 0 }}>
           <ThemeToggle />
 
-
+          {/* Mobile burger */}
           <button
             className="nav-mobile-menu"
             onClick={() => setMobileOpen((v) => !v)}
@@ -65,7 +65,7 @@ export function Navbar({ active, onNavigate }: NavbarProps) {
         </div>
       </div>
 
-
+      {/* Mobile dropdown */}
       {mobileOpen && (
         <div style={{ padding: "0 24px 16px", display: "flex", flexDirection: "column", background: "var(--nav-bg)", backdropFilter: "blur(16px)" }}>
           {NAV_ITEMS.map((item) => (

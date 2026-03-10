@@ -90,9 +90,6 @@ body {
 
 /* ── Project cards ── */
 .project-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 28px;

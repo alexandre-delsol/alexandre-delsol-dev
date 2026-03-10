@@ -24,11 +24,13 @@ export function ThemeToggle() {
       onMouseEnter={(e) => (e.currentTarget.style.borderColor = "var(--accent)")}
       onMouseLeave={(e) => (e.currentTarget.style.borderColor = "var(--border)")}
     >
+      {/* Track */}
       <div style={{
         width: "32px", height: "18px", borderRadius: "9px",
         background: isDark ? "var(--accent)" : "var(--border)",
         position: "relative", transition: "background 0.3s",
       }}>
+        {/* Thumb */}
         <div style={{
           position: "absolute", top: "3px",
           left: isDark ? "17px" : "3px",
@@ -38,6 +40,7 @@ export function ThemeToggle() {
           boxShadow: "0 1px 3px rgba(0,0,0,0.3)",
         }} />
       </div>
+      {/* Icon */}
       <span style={{ fontSize: "13px" }}>{isDark ? "🌙" : "☀️"}</span>
     </button>
   );
