@@ -97,10 +97,10 @@ export const PROJECTS: Project[] = [
         ],
     },
     {
-        img: "./portfolio.webp",
-        gif: "./portfoliow.png",
+        img: "./portfoliob.webp",
+        gif: "./portfoliow.webp",
         title: "Developer Portfolio",
-        description: "Personal portfolio built with React, TypeScript and Vite. Features dark/light mode with useContext, scroll animations, responsive design and a working contact form.",
+        description: "Personal portfolio built with React, TypeScript and Vite. Features dark/light mode with useContext, scroll animations, responsive design, EN/FR language switching and a working contact form.",
         tags: ["React", "TypeScript", "Vite", "CSS Variables"],
         year: "2026",
         github: "https://github.com/alexandre-delsol/alexandre-delsol-dev",
@@ -136,3 +136,6 @@ export const SOCIAL_LINKS = [
     {linkName : "GitHub" , link : "https://github.com/alexandre-delsol"},
     {linkName : "LinkedIn" , link : "https://www.linkedin.com/in/alexandre-delsol/"},
 ];
+
+export const MY_BIO_EN = "I approach code like chess — every decision matters. Fullstack developer who builds robust APIs, intuitive interfaces, and everything in between.";
+export const MY_BIO_FR = "J'aborde le code comme les échecs — chaque décision compte. Développeur fullstack qui construit des APIs robustes, des interfaces intuitives, et tout ce qui se trouve entre les deux.";

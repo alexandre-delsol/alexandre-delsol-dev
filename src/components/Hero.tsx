@@ -1,7 +1,6 @@
-import {HOBBIES, MY_BIO, MY_NAME, MY_TITLE} from "../constants/data";
+import {HOBBIES, MY_BIO_EN, MY_BIO_FR, MY_NAME, MY_TITLE} from "../constants/data";
+import {useLang} from "../context/LanguageContext";
 
-// 👉 Remplacez par le chemin de votre photo dans le dossier /public
-//    Ex: "/photo.jpg" si vous mettez photo.jpg dans /public
 const MY_PHOTO = "/alex.png";
 
 interface HeroProps {
@@ -9,6 +8,9 @@ interface HeroProps {
 }
 
 export function Hero({onNavigate}: HeroProps) {
+    const {t, lang} = useLang();
+    const bio = lang === "fr" ? MY_BIO_FR : MY_BIO_EN;
+
     return (
         <section data-section="About" className="hero-padding"
                  style={{
@@ -44,7 +46,7 @@ export function Hero({onNavigate}: HeroProps) {
                     animation: "fadeUp 0.9s ease forwards",
                     color: "var(--text)"
                 }}>
-                    Hi, I'm<br/>
+                    {t("hero.greeting")}<br/>
                     <span style={{color: "var(--accent-name)", fontWeight: 500}}>{MY_NAME}</span>
                 </h1>
 
@@ -56,14 +58,13 @@ export function Hero({onNavigate}: HeroProps) {
                     fontWeight: 300,
                     marginBottom: "32px"
                 }}>
-                    {MY_BIO}
+                    {bio}
                 </p>
 
                 <div style={{display: "flex", gap: "16px", flexWrap: "wrap"}}>
-                    <button className="btn-primary" onClick={() => onNavigate("Projects")}>View my work</button>
-                    <button className="btn-ghost" onClick={() => onNavigate("Contact")}>Get in touch</button>
+                    <button className="btn-primary" onClick={() => onNavigate("Projects")}>{t("hero.cta.work")}</button>
+                    <button className="btn-ghost" onClick={() => onNavigate("Contact")}>{t("hero.cta.contact")}</button>
                 </div>
-
 
                 <div style={{marginTop: "32px"}}>
                     <div style={{
@@ -74,11 +75,11 @@ export function Hero({onNavigate}: HeroProps) {
                         textTransform: "uppercase",
                         marginBottom: "10px"
                     }}>
-                        Beyond the code
+                        {t("hero.beyond")}
                     </div>
                     <div style={{display: "flex", flexWrap: "wrap", gap: "10px"}}>
                         {HOBBIES.map((hobby) => (
-                            <div key={hobby.label} title={hobby.description}
+                            <div key={hobby.label} title={lang === "fr" ? hobby.description_fr : hobby.description}
                                  style={{
                                      display: "flex",
                                      alignItems: "center",
@@ -98,13 +99,14 @@ export function Hero({onNavigate}: HeroProps) {
                                     fontSize: "14px",
                                     color: "var(--accent-tag)",
                                     fontFamily: "'DM Mono', monospace"
-                                }}>{hobby.label}</span>
+                                }}>
+                  {lang === "fr" ? hobby.label_fr ?? hobby.label : hobby.label}
+                </span>
                             </div>
                         ))}
                     </div>
                 </div>
             </div>
-
 
             <div className="floating-code" style={{
                 position: "absolute", right: "25%", top: "50%",
@@ -113,8 +115,7 @@ export function Hero({onNavigate}: HeroProps) {
             }}>
                 <PhotoFrame/>
 
-                <div style={{display: "flex", flexDirection: "column", gap: "14px",}}>
-
+                <div style={{display: "flex", flexDirection: "column", gap: "14px"}}>
                     <div style={{
                         background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: "12px",
                         padding: "18px 20px", fontFamily: "'DM Mono', monospace", fontSize: "12px",
@@ -182,7 +183,6 @@ export function Hero({onNavigate}: HeroProps) {
                         </div>
                         <div>{"}"}</div>
                     </div>
-
                 </div>
             </div>
 
@@ -195,33 +195,34 @@ export function Hero({onNavigate}: HeroProps) {
     );
 }
 
-/* ── Component PhotoFrame ── */
 function PhotoFrame({small = false}: { small?: boolean }) {
     const size = small ? 100 : 180;
-
     return (
         <div style={{position: "relative", width: size, height: size}}>
-
             <div style={{
-                position: "absolute", top: 8, left: 8,
-                width: size, height: size,
+                position: "absolute",
+                top: 8,
+                left: 8,
+                width: size,
+                height: size,
                 borderRadius: "16px",
                 border: "2px solid var(--accent)",
-                opacity: 0.3,
+                opacity: 0.3
             }}/>
-
-
             <div style={{
                 position: "relative",
-                width: size, height: size,
+                width: size,
+                height: size,
                 borderRadius: "16px",
                 border: "2px solid var(--border-hover)",
                 overflow: "hidden",
                 background: "var(--accent-badge)",
-                display: "flex", alignItems: "center", justifyContent: "center",
-                flexDirection: "column", gap: "8px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexDirection: "column",
+                gap: "8px"
             }}>
-
                 {MY_PHOTO ? (
                     <img src={MY_PHOTO} alt="Profile" style={{width: "100%", height: "100%", objectFit: "cover"}}/>
                 ) : (
@@ -234,7 +235,7 @@ function PhotoFrame({small = false}: { small?: boolean }) {
                             opacity: 0.5,
                             letterSpacing: "0.08em",
                             textAlign: "center",
-                            padding: "0 8px",
+                            padding: "0 8px"
                         }}>
               {small ? "your photo" : "add your photo\nin /public"}
             </span>
