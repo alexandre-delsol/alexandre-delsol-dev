@@ -7,13 +7,13 @@ export const MY_TITLE = "Fullstack Developer";
 export const MY_BIO =
     "I approach software like chess — strategic, deliberate, and always thinking a few moves ahead. Full-stack developer building robust APIs and intuitive user experiences. Off the keyboard, I enjoy climbing and tackling new challenges.";
 
-
 export interface Hobby {
     icon: string;
     label: string;
+    label_fr?: string;
     description: string;
+    description_fr?: string;
 }
-
 export const HOBBIES: Hobby[] = [
     {
         icon: "♟",
