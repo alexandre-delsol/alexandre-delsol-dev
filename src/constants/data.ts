@@ -103,7 +103,7 @@ export const PROJECTS: Project[] = [
         description: "Personal portfolio built with React, TypeScript and Vite. Features dark/light mode with useContext, scroll animations, responsive design, EN/FR language switching and a working contact form.",
         tags: ["React", "TypeScript", "Vite", "CSS Variables"],
         year: "2026",
-        github: "https://github.com/alexandre-delsol/alexandre-delsol-dev",
+        github: "https://alexandre-delsol-dev-portfolio.vercel.app/",
         demo: "https://alexandre-delsol-dev.vercel.app",
     },
     {
