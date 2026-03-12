@@ -1,7 +1,3 @@
-// ============================================================
-//  CUSTOMIZE YOUR PORTFOLIO HERE
-// ============================================================
-
 export const MY_NAME = "Alexandre DELSOL";
 export const MY_TITLE = "Fullstack Developer";
 export const MY_BIO =
@@ -37,8 +33,8 @@ export const FORMSPREE_ID = import.meta.env.VITE_FORMSPREE_ID as string;
 export const NAV_ITEMS = ["About", "Projects", "Skills", "Contact"];
 
 export interface Collaborator {
-    name: string;   // ex: "@prenomnom"
-    github: string; // ex: "https://github.com/prenomnom"
+    name: string;
+    github: string;
 }
 
 export interface Project {

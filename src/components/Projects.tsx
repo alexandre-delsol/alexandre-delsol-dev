@@ -67,11 +67,6 @@ export function Projects() {
                                         fontSize: "11px",
                                         color: "var(--text-muted)"
                                     }}>{project.year}</span>
-                                    <span style={{
-                                        fontSize: "18px",
-                                        color: isHovered ? "var(--accent)" : "var(--text-muted)",
-                                        transition: "color 0.3s"
-                                    }}>↗</span>
                                 </div>
 
                                 {/* Image / GIF */}
@@ -88,9 +83,9 @@ export function Projects() {
                                             alt={project.alt ?? project.title}
                                             style={{
                                                 width: "100%",
-                                                height: "auto",       // 👈 hauteur automatique
-                                                display: "block",     // 👈 évite l'espace sous l'image
-                                                objectFit: "contain", // 👈 plus de recadrage
+                                                height: "auto",
+                                                display: "block",
+                                                objectFit: "contain",
                                                 transition: "opacity 0.3s"
                                             }}
                                         />
